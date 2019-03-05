@@ -1,2 +1,2 @@
 # SwiftTextKitNotepad
-![SwiftTextKitNotepad_001](/Users/zhangyinlong/Documents/SourceTree/SwiftTextKitNotepad/assets/SwiftTextKitNotepad_001.png)
+![SwiftTextKitNotepad_001](./assets/SwiftTextKitNotepad_001.png)
