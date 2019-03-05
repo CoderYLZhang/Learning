@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		948B83902111DA3700FBA184 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 948B838F2111DA3700FBA184 /* Launch Screen.storyboard */; };
 		B8B56FB5222C3ECD00C96EEA /* SyntaxHighlightTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B56FB4222C3ECD00C96EEA /* SyntaxHighlightTextStorage.swift */; };
 		C062BEAD1978ACB400B42456 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C062BEAC1978ACB400B42456 /* AppDelegate.swift */; };
 		C062BEB41978ACB400B42456 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C062BEB21978ACB400B42456 /* Main.storyboard */; };
@@ -19,7 +18,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		948B838F2111DA3700FBA184 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		B8B56FB4222C3ECD00C96EEA /* SyntaxHighlightTextStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxHighlightTextStorage.swift; sourceTree = "<group>"; };
 		C062BEA71978ACB400B42456 /* SwiftTextKitNotepad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftTextKitNotepad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C062BEAB1978ACB400B42456 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -69,7 +67,6 @@
 				B8B56FB4222C3ECD00C96EEA /* SyntaxHighlightTextStorage.swift */,
 				C07E2CD81978D11E00C40BB2 /* TimeIndicatorView.swift */,
 				C062BEB51978ACB400B42456 /* Images.xcassets */,
-				948B838F2111DA3700FBA184 /* Launch Screen.storyboard */,
 				C062BEB21978ACB400B42456 /* Main.storyboard */,
 				C062BEAA1978ACB400B42456 /* Supporting Files */,
 			);
@@ -143,7 +140,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				948B83902111DA3700FBA184 /* Launch Screen.storyboard in Resources */,
 				C062BEB41978ACB400B42456 /* Main.storyboard in Resources */,
 				C062BEB61978ACB400B42456 /* Images.xcassets in Resources */,
 			);
