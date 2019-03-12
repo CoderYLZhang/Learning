@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Flo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="BackgroundView" customModule="Flo" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vyH-LM-nxN" customClass="PushButton" customModule="Flo" customModuleProvider="target">
+                                <rect key="frame" x="137.5" y="393.5" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="VEk-je-meu"/>
+                                    <constraint firstAttribute="height" constant="100" id="fsg-Xc-Dsv"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
+                                        <color key="value" red="0.3411764705882353" green="0.85490196078431369" blue="0.83529411764705885" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="plusButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S6n-u2-JOg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJe-Se-Eor" customClass="PushButton" customModule="Flo" customModuleProvider="target">
+                                <rect key="frame" x="162.5" y="513.5" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="91z-Sv-2Wc"/>
+                                    <constraint firstAttribute="height" constant="50" id="AdZ-T7-TKt"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
+                                        <color key="value" red="0.93333333333333335" green="0.30196078431372547" blue="0.30196078431372547" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isAddButton" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="plusButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jNC-cP-aJu"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JsM-P4-qD1" userLabel="Container View">
+                                <rect key="frame" x="37.5" y="83.5" width="300" height="300"/>
+                                <subviews>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vpi-aM-yxa" customClass="GraphView" customModule="Flo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="25" width="300" height="250"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="Dcx-EJ-C5j"/>
+                                            <constraint firstAttribute="height" constant="250" id="bnV-fV-Jyg"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                                <color key="value" red="0.98039215686274506" green="0.9137254901960784" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                                <color key="value" red="0.9882352941176471" green="0.30980392156862746" blue="0.031372549019607843" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NJW-Qw-cn7" customClass="CounterView" customModule="Flo" customModuleProvider="target">
+                                        <rect key="frame" x="35" y="35" width="230" height="230"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="olP-x7-H86">
+                                                <rect key="frame" x="103.5" y="93.5" width="23" height="43"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="29W-Pq-eyz" customClass="MedalView" customModule="Flo" customModuleProvider="target">
+                                                <rect key="frame" x="76" y="147" width="80" height="80"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="230" id="aRl-l7-08E"/>
+                                            <constraint firstItem="olP-x7-H86" firstAttribute="centerX" secondItem="NJW-Qw-cn7" secondAttribute="centerX" id="hDN-Zb-GO2"/>
+                                            <constraint firstItem="olP-x7-H86" firstAttribute="centerY" secondItem="NJW-Qw-cn7" secondAttribute="centerY" id="neo-DT-2fk"/>
+                                            <constraint firstAttribute="height" constant="230" id="qr1-xi-Bad"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="counterColor">
+                                                <color key="value" red="0.3411764705882353" green="0.85490196078431369" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="outlineColor">
+                                                <color key="value" red="0.13333333333333333" green="0.43137254901960786" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="counter">
+                                                <integer key="value" value="0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="vpi-aM-yxa" firstAttribute="centerY" secondItem="JsM-P4-qD1" secondAttribute="centerY" id="HwB-LI-f6S"/>
+                                    <constraint firstAttribute="width" constant="300" id="MY3-M2-hlB"/>
+                                    <constraint firstItem="NJW-Qw-cn7" firstAttribute="centerY" secondItem="JsM-P4-qD1" secondAttribute="centerY" id="V8s-rl-8uK"/>
+                                    <constraint firstAttribute="height" constant="300" id="cnO-Oo-aHn"/>
+                                    <constraint firstItem="vpi-aM-yxa" firstAttribute="centerX" secondItem="JsM-P4-qD1" secondAttribute="centerX" id="egj-e4-685"/>
+                                    <constraint firstItem="NJW-Qw-cn7" firstAttribute="centerX" secondItem="JsM-P4-qD1" secondAttribute="centerX" id="po1-kc-i0m"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="em4-Fj-ElB" appends="YES" id="8az-WJ-dC5"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="JsM-P4-qD1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1rP-zN-0j4"/>
+                            <constraint firstItem="PJe-Se-Eor" firstAttribute="top" secondItem="vyH-LM-nxN" secondAttribute="bottom" constant="20" id="8eX-z7-dwg"/>
+                            <constraint firstItem="JsM-P4-qD1" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-100" id="KV6-Am-pj3"/>
+                            <constraint firstItem="vyH-LM-nxN" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="100" id="PtU-CL-SF3"/>
+                            <constraint firstItem="PJe-Se-Eor" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ZYm-5t-rGI"/>
+                            <constraint firstItem="vyH-LM-nxN" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="o6x-fd-MRI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="lightColor">
+                                <color key="value" red="1" green="1" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="darkColor">
+                                <color key="value" red="0.87450980392156863" green="1" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="patternSize">
+                                <real key="value" value="30"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="JsM-P4-qD1" id="Bsz-ea-ncT"/>
+                        <outlet property="counterLabel" destination="olP-x7-H86" id="MvP-dF-0kC"/>
+                        <outlet property="counterView" destination="NJW-Qw-cn7" id="fhG-UH-r2U"/>
+                        <outlet property="graphView" destination="vpi-aM-yxa" id="b73-a0-1fr"/>
+                        <outlet property="medalView" destination="29W-Pq-eyz" id="uum-8O-7ai"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="em4-Fj-ElB">
+                    <connections>
+                        <action selector="counterViewTap:" destination="BYZ-38-t0r" id="rDS-a7-Rgj"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-230" y="-2"/>
+        </scene>
+    </scenes>
+</document>
