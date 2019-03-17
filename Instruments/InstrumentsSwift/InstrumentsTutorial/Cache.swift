@@ -39,10 +39,27 @@ class ImageCache {
     static var shared: ImageCache {
         return _shared
     }
+    // 2. 内存大小优化
+    init() {
+        NotificationCenter.default.addObserver(forName: Notification.Name.UIApplicationDidReceiveMemoryWarning, object: nil, queue: .main) { [weak self] notification in
+            self?.images.removeAll(keepingCapacity: false)
+        }
+    }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    // 1. 卡顿优化
     func loadThumbnail(for photo: FlickrPhoto, completion: @escaping FlickrAPI.FetchImageCompletion) {
-        FlickrAPI.loadImage(for: photo, withSize: "m") { result in
-            completion(result)
+        if let image = ImageCache.shared.image(forKey: photo.id) {
+            completion(Result.success(image))
+        } else {
+            FlickrAPI.loadImage(for: photo, withSize: "m") { result in
+                if case .success(let image) = result {
+                    ImageCache.shared.set(image, forKey: photo.id)
+                }
+                completion(result)
+            }
         }
     }
 }

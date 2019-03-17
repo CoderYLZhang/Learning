@@ -57,11 +57,12 @@ extension SearchResultsViewController: UICollectionViewDataSource {
         
         if let flickrPhoto = searchResults?.searchResults[indexPath.item] {
             cell.flickrPhoto = flickrPhoto
-            
-            cell.heartToggleHandler = { isStarred in
-                self.collectionView.reloadItems(at: [ indexPath ])
+            // 3. 循环引用
+            cell.heartToggleHandler = {[weak self] isStarred in
+                self?.collectionView.reloadItems(at: [ indexPath ])
             }
             
+            // 1. 卡顿优化
             ImageCache.shared.loadThumbnail(for: flickrPhoto) { result in
                 
                 switch result {
@@ -71,8 +72,20 @@ extension SearchResultsViewController: UICollectionViewDataSource {
                     if cell.flickrPhoto == flickrPhoto {
                         if flickrPhoto.isFavourite {
                             cell.imageView.image = image
-                        } else if let filteredImage = image.applyTonalFilter() {
-                            cell.imageView.image = filteredImage
+                        } else {
+                            if let cachedImage = ImageCache.shared.image(forKey: "\(flickrPhoto.id)-filtered") {
+                                cell.imageView.image = cachedImage
+                            } else {
+                                DispatchQueue.global().async {
+                                    if let filteredImage = image.applyTonalFilter() {
+                                        ImageCache.shared.set(filteredImage, forKey: "\(flickrPhoto.id)-filtered")
+                                        
+                                        DispatchQueue.main.async {
+                                            cell.imageView.image = filteredImage
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                     
