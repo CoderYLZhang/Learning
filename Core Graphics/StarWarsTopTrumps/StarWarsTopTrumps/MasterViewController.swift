@@ -30,59 +30,70 @@ import UIKit
 
 class MasterViewController: UITableViewController {
     
-  var detailViewController: DetailViewController?
-  var starships: [Starship] = []
-  lazy var dataProvider = StarshipDataProvider()
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
+    var detailViewController: DetailViewController?
+    var starships: [Starship] = []
+    lazy var dataProvider = StarshipDataProvider()
     
-    if let split = splitViewController {
-      let controllers = split.viewControllers
-      detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-    }
-  }
-  
-  override func viewWillAppear(_ animated: Bool) {
-    reloadData()
-    clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
-    super.viewWillAppear(animated)
-  }
-  
-  func reloadData() {
-    starships = dataProvider.fetchAll()
-    tableView.reloadData()
-  }
-  
-  // MARK: - Segues
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier != "showDetail" {
-      return
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if let split = splitViewController {
+            let controllers = split.viewControllers
+            detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+        }
+        tableView.backgroundColor = .starwarsSpaceBlue
     }
     
-    if let indexPath = tableView.indexPathForSelectedRow {
-      let starship = starships[indexPath.row]
-      let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-      controller.starshipItem = starship
-      controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-      controller.navigationItem.leftItemsSupplementBackButton = true
+    override func viewWillAppear(_ animated: Bool) {
+        reloadData()
+        clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
+        super.viewWillAppear(animated)
     }
-  }
-
-  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return starships.count
-  }
-
-  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
-    let starship = starships[indexPath.row]
-    cell.textLabel!.text = starship.name
-    return cell
-  }
-
-  override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-    return false
-  }
+    
+    func reloadData() {
+        starships = dataProvider.fetchAll()
+        tableView.reloadData()
+    }
+    
+    // MARK: - Segues
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier != "showDetail" {
+            return
+        }
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            let starship = starships[indexPath.row]
+            let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
+            controller.starshipItem = starship
+            controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+            controller.navigationItem.leftItemsSupplementBackButton = true
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return starships.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+        let starship = starships[indexPath.row]
+        cell.textLabel!.text = starship.name
+        
+        if !(cell.backgroundView is StarshipsListCellBackground) {
+            cell.backgroundView = StarshipsListCellBackground()
+        }
+        
+        if !(cell.selectedBackgroundView is StarshipsListCellBackground) {
+            cell.selectedBackgroundView = StarshipsListCellBackground()
+        }
+        
+        cell.textLabel!.textColor = .starwarsStarshipGrey
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
 }

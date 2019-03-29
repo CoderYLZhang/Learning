@@ -29,129 +29,139 @@
 import UIKit
 
 enum FieldsToDisplay: String, CaseIterable {
-  case image = "Image"
-  case model = "Model"
-  case starshipClass = "Class"
-  case costInCredits = "Cost in Credits"
-  case cargoCapacity = "Cargo Capacity"
-  case MGLT = "Speed"
-  case maxAtmospheringSpeed = "Max Atmosphering Speed"
-  case length = "Length"
+    case image = "Image"
+    case model = "Model"
+    case starshipClass = "Class"
+    case costInCredits = "Cost in Credits"
+    case cargoCapacity = "Cargo Capacity"
+    case MGLT = "Speed"
+    case maxAtmospheringSpeed = "Max Atmosphering Speed"
+    case length = "Length"
 }
 
 class DetailViewController: UITableViewController {
-  let numberOfFields = FieldsToDisplay.allCases.count
-  let numberFormatter = NumberFormatter()
-
-  lazy var imageFetcher = StarshipImageFetcher()
-  
-  var starshipImage = UIImage(named: "image_not_found.png")
-  var starshipItem: Starship? {
-    didSet {
-      starshipImage = imageFetcher.imageForStarship(named: starshipItem!.name)
-      tableView.reloadData()
-    }
-  }
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
+    let numberOfFields = FieldsToDisplay.allCases.count
+    let numberFormatter = NumberFormatter()
     
-    numberFormatter.minimumFractionDigits = 2
-    numberFormatter.roundingMode = .halfDown
+    lazy var imageFetcher = StarshipImageFetcher()
     
-    tableView.rowHeight = UITableView.automaticDimension
-    tableView.estimatedRowHeight = 375
-  }
-
-
-  // MARK: - UITableViewDataSource
-  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return numberOfFields
-  }
-
-  override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    if section == 0 {
-      return starshipItem?.name
-    } else {
-      return ""
+    var starshipImage = UIImage(named: "image_not_found.png")
+    var starshipItem: Starship? {
+        didSet {
+            starshipImage = imageFetcher.imageForStarship(named: starshipItem!.name)
+            tableView.reloadData()
+        }
     }
-  }
-
-  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    if indexPath.row == 0 {
-      // The first item is the image, which should be treated differently
-      let cell = tableView.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath) as! StarshipImageCell
-      cell.starshipImageView.image = starshipImage
-      return cell
-    } else {
-      let cell = tableView.dequeueReusableCell(withIdentifier: "FieldCell", for: indexPath)
-
-      switch indexPath.row {
-      case 1:
-        cell.textLabel!.text = FieldsToDisplay.model.rawValue
-        cell.detailTextLabel!.text = starshipItem?.model
-      case 2:
-        cell.textLabel!.text = FieldsToDisplay.starshipClass.rawValue
-        cell.detailTextLabel!.text = starshipItem?.starshipClass
-      case 3:
-        cell.textLabel!.text = FieldsToDisplay.costInCredits.rawValue
-        if let cost = starshipItem?.costInCredits,
-          let costStr = numberFormatter.string(from: NSNumber(value: cost)) {
-          cell.detailTextLabel!.text = "\(costStr)"
-        } else {
-          cell.detailTextLabel!.text = "Unknown"
-        }
-      case 4:
-        cell.textLabel!.text = FieldsToDisplay.cargoCapacity.rawValue
-        if let cargoCapacity = starshipItem?.cargoCapacity,
-          let cargoCapacityStr = numberFormatter.string(from: NSNumber(value: cargoCapacity)) {
-          cell.detailTextLabel!.text = "\(cargoCapacityStr) kg"
-        } else {
-          cell.detailTextLabel!.text = "Unknown"
-        }
-      case 5:
-        cell.textLabel!.text = FieldsToDisplay.MGLT.rawValue
-        if let MGLT = starshipItem?.MGLT {
-          cell.detailTextLabel!.text = "\(MGLT) megalights"
-        } else {
-          cell.detailTextLabel!.text = "Unknown"
-        }
-      case 6:
-        cell.textLabel!.text = FieldsToDisplay.maxAtmospheringSpeed.rawValue
-        if let maxAtmospheringSpeed = starshipItem?.maxAtmospheringSpeed {
-          cell.detailTextLabel!.text = "\(maxAtmospheringSpeed)"
-        } else {
-          cell.detailTextLabel!.text = "Not Applicable"
-        }
-      case 7:
-        cell.textLabel!.text = FieldsToDisplay.length.rawValue
-        if let length = starshipItem?.length,
-          let lengthStr = numberFormatter.string(from: NSNumber(value: length)) {
-          cell.detailTextLabel!.text = "\(lengthStr)"
-        } else {
-          cell.detailTextLabel!.text = "Unknown"
-        }
-      default:
-        print("Warning! Unexpected row number: \(indexPath.row)")
-      }
-
-      return cell
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        numberFormatter.minimumFractionDigits = 2
+        numberFormatter.roundingMode = .halfDown
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 375
     }
-  }
-
-  // MARK: - UITableViewDelegate
-  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    if indexPath.row == 0 {
-      let widthOfTableView = self.tableView!.frame.width
-      let widthOfImage = starshipImage!.size.width
-      let scaleFactor = widthOfTableView / widthOfImage
-      return starshipImage!.size.height * scaleFactor
-    } else {
-      return 44.0
+    
+    
+    // MARK: - UITableViewDataSource
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return numberOfFields
     }
-  }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return starshipItem?.name
+        } else {
+            return ""
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 0 {
+            // The first item is the image, which should be treated differently
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ImageCell", for: indexPath) as! StarshipImageCell
+            cell.starshipImageView.image = starshipImage
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "FieldCell", for: indexPath)
+            
+            switch indexPath.row {
+            case 1:
+                cell.textLabel!.text = FieldsToDisplay.model.rawValue
+                cell.detailTextLabel!.text = starshipItem?.model
+            case 2:
+                cell.textLabel!.text = FieldsToDisplay.starshipClass.rawValue
+                cell.detailTextLabel!.text = starshipItem?.starshipClass
+            case 3:
+                cell.textLabel!.text = FieldsToDisplay.costInCredits.rawValue
+                if let cost = starshipItem?.costInCredits,
+                    let costStr = numberFormatter.string(from: NSNumber(value: cost)) {
+                    cell.detailTextLabel!.text = "\(costStr)"
+                } else {
+                    cell.detailTextLabel!.text = "Unknown"
+                }
+            case 4:
+                cell.textLabel!.text = FieldsToDisplay.cargoCapacity.rawValue
+                if let cargoCapacity = starshipItem?.cargoCapacity,
+                    let cargoCapacityStr = numberFormatter.string(from: NSNumber(value: cargoCapacity)) {
+                    cell.detailTextLabel!.text = "\(cargoCapacityStr) kg"
+                } else {
+                    cell.detailTextLabel!.text = "Unknown"
+                }
+            case 5:
+                cell.textLabel!.text = FieldsToDisplay.MGLT.rawValue
+                if let MGLT = starshipItem?.MGLT {
+                    cell.detailTextLabel!.text = "\(MGLT) megalights"
+                } else {
+                    cell.detailTextLabel!.text = "Unknown"
+                }
+            case 6:
+                cell.textLabel!.text = FieldsToDisplay.maxAtmospheringSpeed.rawValue
+                if let maxAtmospheringSpeed = starshipItem?.maxAtmospheringSpeed {
+                    cell.detailTextLabel!.text = "\(maxAtmospheringSpeed)"
+                } else {
+                    cell.detailTextLabel!.text = "Not Applicable"
+                }
+            case 7:
+                cell.textLabel!.text = FieldsToDisplay.length.rawValue
+                if let length = starshipItem?.length,
+                    let lengthStr = numberFormatter.string(from: NSNumber(value: length)) {
+                    cell.detailTextLabel!.text = "\(lengthStr)"
+                } else {
+                    cell.detailTextLabel!.text = "Unknown"
+                }
+            default:
+                print("Warning! Unexpected row number: \(indexPath.row)")
+            }
+            
+            cell.textLabel!.textColor = .starwarsStarshipGrey
+            cell.detailTextLabel!.textColor = .starwarsYellow
+            
+            return cell
+        }
+    }
+    
+    // MARK: - UITableViewDelegate
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            let widthOfTableView = self.tableView!.frame.width
+            let widthOfImage = starshipImage!.size.width
+            let scaleFactor = widthOfTableView / widthOfImage
+            return starshipImage!.size.height * scaleFactor
+        } else {
+            return 44.0
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = .starwarsYellow
+        if let header = view as? UITableViewHeaderFooterView {
+            header.textLabel?.textColor = .starwarsSpaceBlue
+        }
+    }
 }
 
 class StarshipImageCell: UITableViewCell {
-  @IBOutlet weak var starshipImageView: UIImageView!
+    @IBOutlet weak var starshipImageView: UIImageView!
 }

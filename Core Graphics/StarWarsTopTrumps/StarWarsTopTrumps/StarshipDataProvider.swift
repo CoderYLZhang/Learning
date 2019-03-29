@@ -31,17 +31,17 @@ import Foundation
 // The data stored in Starship.json is a lightly modified response from the Star Wars API example from GraphQL - https://graphql.org/swapi-graphql
 // Full query: https://goo.gl/ngGGFA
 class StarshipDataProvider {
-  func fetchAll() -> [Starship] {
-    let url = Bundle.main.url(forResource: "Starships", withExtension: "json")!
-    do {
-      let data = try Data(contentsOf: url)
-      let allStarships = try JSONDecoder().decode(AllStarships.self, from: data)
-      return allStarships.starships.map { $0.starship }
+    func fetchAll() -> [Starship] {
+        let url = Bundle.main.url(forResource: "Starships", withExtension: "json")!
+        do {
+            let data = try Data(contentsOf: url)
+            let allStarships = try JSONDecoder().decode(AllStarships.self, from: data)
+            return allStarships.starships.map { $0.starship }
+        }
+        catch {
+            print("Could not decode starship data from JSON")
+            print(error)
+            return []
+        }
     }
-    catch {
-      print("Could not decode starship data from JSON")
-      print(error)
-      return []
-    }
-  }
 }

@@ -29,28 +29,28 @@
 import Foundation
 
 struct Starship: Decodable {
-  let name: String
-  let model: String
-  let starshipClass: String
-  let costInCredits: Float!
-  let cargoCapacity: Float!
-  let MGLT: Int!
-  let maxAtmospheringSpeed: Int!
-  let length: Float
+    let name: String
+    let model: String
+    let starshipClass: String
+    let costInCredits: Float!
+    let cargoCapacity: Float!
+    let MGLT: Int!
+    let maxAtmospheringSpeed: Int!
+    let length: Float
 }
 
 struct Node: Decodable  {
-  let starship: Starship
-  
-  enum CodingKeys: String, CodingKey {
-    case starship = "node"
-  }
+    let starship: Starship
+    
+    enum CodingKeys: String, CodingKey {
+        case starship = "node"
+    }
 }
 
 struct AllStarships: Decodable {
-  let starships: [Node]
-  
-  enum CodingKeys: String, CodingKey {
-    case starships = "allStarships"
-  }
+    let starships: [Node]
+    
+    enum CodingKeys: String, CodingKey {
+        case starships = "allStarships"
+    }
 }

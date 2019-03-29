@@ -34,6 +34,11 @@
 		4588ABF721DE7B1E0012B268 /* imperial_shuttle.png in Resources */ = {isa = PBXBuildFile; fileRef = 4588ABE721DE7B1E0012B268 /* imperial_shuttle.png */; };
 		4588ABF821DE7B1E0012B268 /* sentinel-class_landing_craft.png in Resources */ = {isa = PBXBuildFile; fileRef = 4588ABE821DE7B1E0012B268 /* sentinel-class_landing_craft.png */; };
 		4588ABF921DE7B1E0012B268 /* ef76_nebulon-b_escort_frigate.png in Resources */ = {isa = PBXBuildFile; fileRef = 4588ABE921DE7B1E0012B268 /* ef76_nebulon-b_escort_frigate.png */; };
+		B8B16755224E589D00FAF09E /* StarshipsListCellBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B16754224E589D00FAF09E /* StarshipsListCellBackground.swift */; };
+		B8B16757224E598C00FAF09E /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B16756224E598C00FAF09E /* UIColorExtensions.swift */; };
+		B8B16759224E59C500FAF09E /* CGContextExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B16758224E59C500FAF09E /* CGContextExtensions.swift */; };
+		B8B1675B224E5E5F00FAF09E /* StarshipTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B1675A224E5E5F00FAF09E /* StarshipTableView.swift */; };
+		B8B1675D224E600E00FAF09E /* YellowSplitterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B1675C224E600E00FAF09E /* YellowSplitterTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +71,11 @@
 		4588ABE721DE7B1E0012B268 /* imperial_shuttle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = imperial_shuttle.png; sourceTree = "<group>"; };
 		4588ABE821DE7B1E0012B268 /* sentinel-class_landing_craft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sentinel-class_landing_craft.png"; sourceTree = "<group>"; };
 		4588ABE921DE7B1E0012B268 /* ef76_nebulon-b_escort_frigate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ef76_nebulon-b_escort_frigate.png"; sourceTree = "<group>"; };
+		B8B16754224E589D00FAF09E /* StarshipsListCellBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipsListCellBackground.swift; sourceTree = "<group>"; };
+		B8B16756224E598C00FAF09E /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		B8B16758224E59C500FAF09E /* CGContextExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGContextExtensions.swift; sourceTree = "<group>"; };
+		B8B1675A224E5E5F00FAF09E /* StarshipTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarshipTableView.swift; sourceTree = "<group>"; };
+		B8B1675C224E600E00FAF09E /* YellowSplitterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowSplitterTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +150,11 @@
 				453CC24321AFCC7E0012301C /* StarshipDataProvider.swift */,
 				45578FE721B7226D00F59CEC /* StarshipImageFetcher.swift */,
 				453CC24021AFCAFB0012301C /* Starship.swift */,
+				B8B16754224E589D00FAF09E /* StarshipsListCellBackground.swift */,
+				B8B1675A224E5E5F00FAF09E /* StarshipTableView.swift */,
+				B8B1675C224E600E00FAF09E /* YellowSplitterTableViewCell.swift */,
+				B8B16756224E598C00FAF09E /* UIColorExtensions.swift */,
+				B8B16758224E59C500FAF09E /* CGContextExtensions.swift */,
 				4514CDE321B464540060E34F /* Resources */,
 				453CC1FB21AFC7AF0012301C /* Info.plist */,
 			);
@@ -236,11 +251,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				453CC1F221AFC7AD0012301C /* DetailViewController.swift in Sources */,
+				B8B1675B224E5E5F00FAF09E /* StarshipTableView.swift in Sources */,
 				45578FE821B7226D00F59CEC /* StarshipImageFetcher.swift in Sources */,
 				453CC1F021AFC7AD0012301C /* MasterViewController.swift in Sources */,
 				453CC24421AFCC7E0012301C /* StarshipDataProvider.swift in Sources */,
+				B8B16755224E589D00FAF09E /* StarshipsListCellBackground.swift in Sources */,
+				B8B1675D224E600E00FAF09E /* YellowSplitterTableViewCell.swift in Sources */,
 				453CC1EE21AFC7AD0012301C /* AppDelegate.swift in Sources */,
 				453CC24121AFCAFB0012301C /* Starship.swift in Sources */,
+				B8B16759224E59C500FAF09E /* CGContextExtensions.swift in Sources */,
+				B8B16757224E598C00FAF09E /* UIColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
