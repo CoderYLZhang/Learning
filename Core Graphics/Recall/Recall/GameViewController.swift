@@ -126,13 +126,11 @@ private extension GameViewController {
   }
   
   // Sets up the pattern view given a diretion and color
-  func setupPatternView(
-    _ patternView: PatternView,
-    towards: PatternView.PatternDirection,
-    havingColor color: UIColor
-    ) {
+  func setupPatternView(_ patternView: PatternView, towards: PatternView.PatternDirection, havingColor color: UIColor) {
     patternView.direction = towards
     patternView.fillColor = color.rgba
+    
+    patternView.setNeedsDisplay()
   }
   
   // Displays the results of the choice

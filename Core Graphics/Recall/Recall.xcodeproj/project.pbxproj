@@ -19,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		5394F02421864DF4006E754C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B8D9AC10225723D9008E91C3 /* PatternView.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PatternView.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		CB41A6CD21BE2F19001823DC /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		CB41A6CF21BE4398001823DC /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		CB41A6D121BE4753001823DC /* PatternView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternView.swift; sourceTree = "<group>"; };
@@ -64,8 +65,9 @@
 			children = (
 				D2A5F2201F4A96D0005CD714 /* AppDelegate.swift */,
 				CB41A6CD21BE2F19001823DC /* GameViewController.swift */,
-				CB41A6CF21BE4398001823DC /* ResultViewController.swift */,
 				CB41A6D121BE4753001823DC /* PatternView.swift */,
+				B8D9AC10225723D9008E91C3 /* PatternView.playground */,
+				CB41A6CF21BE4398001823DC /* ResultViewController.swift */,
 				CB5319F221BE4D6E009FB588 /* Game.swift */,
 				D2A5F2071F4A9144005CD714 /* Main.storyboard */,
 				5394F02321864DF4006E754C /* LaunchScreen.storyboard */,
